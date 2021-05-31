@@ -205,8 +205,7 @@ class K9NotificationActionCreator implements NotificationActionCreator {
     }
 
     private Intent createUnreadIntent(final Account account) {
-        String searchTitle = context.getString(R.string.search_title, account.getDescription(), context.getString(R.string.unread_modifier));
-        LocalSearch search = accountSearchConditions.createUnreadSearch(account, searchTitle);
+        LocalSearch search = accountSearchConditions.createUnreadSearch(account);
         return MessageList.intentDisplaySearch(context, search, true, false, false);
     }
 

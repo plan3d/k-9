@@ -110,13 +110,12 @@ class AccountSearchConditions {
         }
     }
 
-    fun createUnreadSearch(account: BaseAccount, searchTitle: String): LocalSearch {
+    fun createUnreadSearch(account: BaseAccount): LocalSearch {
         val search: LocalSearch
         if (account is SearchAccount) {
             search = account.relatedSearch.clone()
-            search.name = searchTitle
         } else {
-            search = LocalSearch(searchTitle)
+            search = LocalSearch()
             search.addAccountUuid(account.uuid)
 
             val realAccount = account as Account
